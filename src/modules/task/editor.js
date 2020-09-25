@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { Input, Textbox, Header, Footer, DatePicker, Attachment, SubHeading } from '../../common';
+import { Input, Textbox, Header, Footer, DatePicker, Attachment, Heading } from '../../common';
 import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
 import Assignee from './assignee';
 import { updateInfo } from './reducer';
@@ -21,7 +21,7 @@ const TaskEditor = (props) => {
         style={styles.container}
         showsVerticalScrollIndicator={false}
       >
-        <SubHeading text="Summary" />
+        <Heading text="Summary" />
         <Input
           placeholder="Title"
           value={summary}
@@ -33,7 +33,7 @@ const TaskEditor = (props) => {
           selected={assignee}
           onPress={() => props.navigation.navigate('Employee')}
         />
-        <SubHeading style={{ paddingVertical: 10 }} text="Description" />
+        <Heading style={{ paddingVertical: 10 }} text="Description" />
         <Textbox
           placeholder="Text"
           value={description}

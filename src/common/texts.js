@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import PropTypes from 'prop-types';
-import { FONT_SIZE } from '../constants';
+import { FONT_SIZE, TEXT_COLORS } from '../constants';
 
 export const Title = ({ text, style, ...props }) => (
   <Text
@@ -30,6 +30,8 @@ export const Heading = ({ text, style, ...props }) => (
     style={{
       fontSize: FONT_SIZE.heading,
       color: '#121212',
+      paddingTop: 10,
+      paddingBottom: 5,
       ...style,
     }}
   >
@@ -56,6 +58,7 @@ export const Content = ({ text, style, ...props }) => (
     {...props}
     style={{
       fontSize: FONT_SIZE.text,
+      color: TEXT_COLORS.regular,
       ...style,
     }}
   >

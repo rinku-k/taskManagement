@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     borderWidth: BORDERS.medium,
     borderRadius: BORDERS.radius,
   },
-  textbox: {
-  },
 });
+
+export { styles as inputStyles };

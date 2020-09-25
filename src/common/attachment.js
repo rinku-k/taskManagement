@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button, Icon } from 'react-native-elements';
 import DocumentPicker from 'react-native-document-picker';
-import { SubHeading, Content } from './texts';
+import { Heading, Content } from './texts';
 import { BORDERS, COLORS, TEXT_COLORS } from '../constants';
 
 export const Attachment = ({ file, setFile, avoidDelete }) => {
@@ -22,7 +22,7 @@ export const Attachment = ({ file, setFile, avoidDelete }) => {
   return (
     <View style={styles.container}>
       <View style={styles.inline}>
-        <SubHeading style={{ paddingVertical: 10 }} text="Attachment" />
+        <Heading text="Attachment" />
         { (!file || !file.name) &&
           <Button
             title="Add"

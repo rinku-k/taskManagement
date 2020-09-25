@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements';
-import { SubTitle } from './texts';
+import { Title } from './texts';
 import { COLORS, SPACINGS } from '../constants';
 
 export const Header = (props) => (
@@ -22,7 +22,7 @@ export const Header = (props) => (
       </TouchableOpacity>
     }
     <View style={{ flex: 2, justifyContent: 'center' }}>
-      <SubTitle text={props.title} style={{ color: '#fff' }} />
+      <Title text={props.title} style={{ color: '#fff' }} />
     </View>
     <View style={{ flex: 1 }} />
   </View>

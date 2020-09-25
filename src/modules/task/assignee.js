@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { SubHeading, FacePile } from '../../common';
+import { Heading, FacePile } from '../../common';
 import { COLORS } from '../../constants';
 
 const Assignee = ({ selected, onPress }) => {
@@ -14,7 +14,7 @@ const Assignee = ({ selected, onPress }) => {
   return (
     <View style={styles.container}>
       <View style={styles.inline}>
-        <SubHeading text="Assignees" />
+        <Heading text="Assignees" />
         { !selected.length && <Button
           title="+ Assign"
           type="clear"

@@ -13,7 +13,6 @@ const initialState = {
   assignee: [],
   description: "",
   attachment: null,
-  ...dummy,
 };
 
 export const task = createSlice({

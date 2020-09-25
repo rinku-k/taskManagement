@@ -25,11 +25,12 @@ export const COLORS = {
 
 export const TEXT_COLORS = {
   dark: '#343737',
+  regular: '#7F7F7F',
   light: '#adadad',
 };
 
 export const FONT_SIZE = {
-  title: 26,
+  title: 20,
   subtitle: 18,
   heading: 16,
   subheading: 14,
