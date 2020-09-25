@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { Input, Header, Footer, Calendar, Attachment, SubHeading } from '../../common';
+import { Input, Header, Footer, DatePicker, Attachment, SubHeading } from '../../common';
 import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
 import Assignee from './assignee';
 import { updateInfo } from './reducer';
@@ -28,7 +28,7 @@ const TaskEditor = (props) => {
           maxLength={MAX_TITLE_LENGTH}
           onChangeText={text => updateFields("summary", text)}
         />
-        <Calendar value={dateTime} onSelected={(date) => updateFields("dateTime", date)} />
+        <DatePicker value={dateTime} onSelected={(date) => updateFields("dateTime", date)} />
         <Assignee
           selected={assignee}
           onPress={() => props.navigation.navigate('Employee')}
