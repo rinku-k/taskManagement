@@ -5,12 +5,19 @@ export const ROLES = {
   GROUP: 10,
 };
 
+export const ROLE_NAMES = {
+  1: () => "Manager",
+  2: () => "Franchise manager",
+  10: (x) => `${x} members`,
+};
+
 export const MAX_DESCRIPTION_LENGTH = 500;
+export const MAX_NAME_LENGTH = 15;
 
 export const ATTACHMENT_FORMAT = ['docx'];
 
 export const COLORS = {
-  primary: "blue",
+  primary: "#6200EE",
   border: '#C3C3C4',
   danger: 'red',
 };
@@ -34,7 +41,6 @@ export const FONT_SIZE = {
 };
 
 export const SPACINGS = {
-  inner: 10,
   container: 15,
   headerPadding: 30,
 };
