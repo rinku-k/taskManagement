@@ -4,9 +4,9 @@ import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { COLORS, SPACINGS } from '../constants';
 
-export const Footer = ({ title, onPress }) => (
+export const Footer = ({ title, onPress, disabled }) => (
   <View style={styles.container}>
-    <Button title={title} onPress={onPress} buttonStyle={styles.button} />
+    <Button disabled={disabled} title={title} onPress={onPress} buttonStyle={styles.button} />
   </View>
 );
 
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   button: {
-    // height: 40,
+    height: 40,
     backgroundColor: COLORS.primary,
   }
 });
@@ -25,8 +25,10 @@ const styles = StyleSheet.create({
 Footer.propTypes = {
   title: PropTypes.string,
   onPress: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 Footer.defaultProps = {
   onPress: null,
+  disabled: false,
 };

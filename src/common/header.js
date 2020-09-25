@@ -32,9 +32,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.primary,
     paddingHorizontal: SPACINGS.container,
-    paddingVertical: SPACINGS.headerPadding,
+    paddingVertical: 20,
     flexDirection: 'row',
-    // justifyContent: 'space-between',
   },
   headerText: {
     color: '#fff',

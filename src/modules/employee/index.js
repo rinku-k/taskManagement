@@ -16,7 +16,7 @@ const Employees = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <Header
-        onBackPress={() => {}}
+        onBackPress={() => props.navigation.goBack()}
         title="Assign Employee"
       />
       <View style={styles.container}>

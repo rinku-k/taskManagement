@@ -24,12 +24,8 @@ export const COLORS = {
 };
 
 export const TEXT_COLORS = {
-  darkest: '#212121',
   dark: '#343737',
-  regular: '#7F7F7F',
-  medium: '#989898',
   light: '#adadad',
-  lightest: '#ffffff',
 };
 
 export const FONT_SIZE = {

@@ -4,7 +4,7 @@ import { Calendar } from 'react-native-calendars';
 import { Button } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { Input } from './input';
-import { COLORS, TEXT_COLORS, FONT_SIZE, BORDERS, SPACINGS } from '../constants';
+import { COLORS, BORDERS } from '../constants';
 
 export const DatePicker = (props) => {
   const [date, setDate] = useState();
@@ -36,6 +36,7 @@ export const DatePicker = (props) => {
         firstDay={1}
         theme={{
           todayTextColor: COLORS.primary,
+          arrowColor: COLORS.primary,
           'stylesheet.calendar.header': {
             week: {
               marginTop: 7,
@@ -49,7 +50,7 @@ export const DatePicker = (props) => {
       />
       <Button
         title="Apply"
-        onPress={() => props.onSelected(Object.keys(date)[0])}
+        onPress={() => props.onSelected(Object.keys(date)[0].split('-').reverse().join('.'))}
         buttonStyle={styles.button}
       />
     </View>

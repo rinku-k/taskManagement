@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { Input, Header, Footer, DatePicker, Attachment, SubHeading } from '../../common';
+import { Input, Textbox, Header, Footer, DatePicker, Attachment, SubHeading } from '../../common';
 import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
 import Assignee from './assignee';
 import { updateInfo } from './reducer';
@@ -33,19 +33,24 @@ const TaskEditor = (props) => {
           selected={assignee}
           onPress={() => props.navigation.navigate('Employee')}
         />
-        <SubHeading text="Description" />
-        <Input
+        <SubHeading style={{ paddingVertical: 10 }} text="Description" />
+        <Textbox
           placeholder="Text"
-          multiline
           value={description}
           maxLength={MAX_DESCRIPTION_LENGTH}
           onChangeText={text => updateFields("description", text)}
+          legend={`${description.length}/${MAX_DESCRIPTION_LENGTH}`}
         />
         <Attachment
-          selected={attachment}
+          file={attachment}
+          setFile={file => updateFields("attachment", file)}
         />
       </ScrollView>
-      <Footer disabled title="Create task" onPress={() => props.navigation.navigate('Task')}/>
+      <Footer
+        disabled={!summary || !dateTime || !assignee.length || !description || !attachment }
+        title="Create task"
+        onPress={() => props.navigation.navigate('Task')}
+      />
     </View>
   );
 };

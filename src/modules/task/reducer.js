@@ -1,11 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const dummy = {
+  summary: "This is title",
+  dateTime: "23.09.2020",
+  assignee: [1,2,3,4,5,6],
+  description: "This is temp",
+  attachment: { name: "test.jjs" },
+};
 const initialState = {
   summary: "",
   dateTime: "",
   assignee: [],
   description: "",
-  attachment: "",
+  attachment: null,
+  ...dummy,
 };
 
 export const task = createSlice({

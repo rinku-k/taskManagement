@@ -14,7 +14,7 @@ const Assignee = ({ selected, onPress }) => {
   return (
     <View style={styles.container}>
       <View style={styles.inline}>
-        <SubHeading text="Employee" />
+        <SubHeading text="Assignees" />
         { !selected.length && <Button
           title="+ Assign"
           type="clear"

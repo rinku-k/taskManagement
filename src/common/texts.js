@@ -29,7 +29,7 @@ export const Heading = ({ text, style, ...props }) => (
     {...props}
     style={{
       fontSize: FONT_SIZE.heading,
-      fontWeight: 'bold',
+      color: '#121212',
       ...style,
     }}
   >
@@ -42,6 +42,8 @@ export const SubHeading = ({ text, style, ...props }) => (
     {...props}
     style={{
       fontSize: FONT_SIZE.subheading,
+      paddingTop: 10,
+      paddingBottom: 5,
       ...style,
     }}
   >
