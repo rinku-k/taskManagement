@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { Icon } from 'react-native-elements';
-import { SubTitle } from '.';
+import { SubTitle } from './texts';
 import { COLORS, SPACINGS } from '../constants';
 
 export const Header = (props) => (

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   summary: "",
   dateTime: "",
-  employee: [],
+  assignee: [],
   description: "",
   attachment: "",
 };

@@ -1,14 +1,51 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { SPACINGS } from '../../constants';
+import { Input, Header, Footer, Calendar, Attachment, SubHeading } from '../../common';
+import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
+import Assignee from './assignee';
+import { updateInfo } from './reducer';
 
-const TaskEditor = () => {
-  const task = useSelector(state => state.task);
+const TaskEditor = (props) => {
+  const { summary, dateTime, assignee, description, attachment } = useSelector(state => state.task);
   const dispatch = useDispatch();
+
+  const updateFields = (type, value) => dispatch(updateInfo({ type, value }));
+
   return (
-    <View style={styles.container}>
-      <Text>Task Editor</Text>
+    <View style={{ flex: 1 }}>
+      <Header
+        title="Create task"
+      />
+      <ScrollView
+        style={styles.container}
+        showsVerticalScrollIndicator={false}
+      >
+        <SubHeading text="Summary" />
+        <Input
+          placeholder="Title"
+          value={summary}
+          maxLength={MAX_TITLE_LENGTH}
+          onChangeText={text => updateFields("summary", text)}
+        />
+        <Calendar value={dateTime} onSelected={(date) => updateFields("dateTime", date)} />
+        <Assignee
+          selected={assignee}
+          onPress={() => props.navigation.navigate('Employee')}
+        />
+        <SubHeading text="Description" />
+        <Input
+          placeholder="Text"
+          multiline
+          value={description}
+          maxLength={MAX_DESCRIPTION_LENGTH}
+          onChangeText={text => updateFields("description", text)}
+        />
+        <Attachment
+          selected={attachment}
+        />
+      </ScrollView>
+      <Footer disabled title="Create task" onPress={() => props.navigation.navigate('Task')}/>
     </View>
   );
 };

@@ -12,6 +12,7 @@ export const ROLE_NAMES = {
 };
 
 export const MAX_DESCRIPTION_LENGTH = 500;
+export const MAX_TITLE_LENGTH = 60;
 export const MAX_NAME_LENGTH = 15;
 
 export const ATTACHMENT_FORMAT = ['docx'];

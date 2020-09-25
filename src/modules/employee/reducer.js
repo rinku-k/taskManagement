@@ -19,9 +19,12 @@ export const employee = createSlice({
         state.selectedIds = [ ...state.selectedIds, action.payload];
       }
     },
+    reset: (state, action) => {
+      state.selectedIds = initialState.selectedIds;
+    }
   }
 });
 
-export const { onEmployeeClick } = employee.actions
+export const { onEmployeeClick, reset } = employee.actions
 
 export default employee.reducer

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-end',
     padding: SPACINGS.container,
+    backgroundColor: '#fff',
   },
   button: {
     // height: 40,

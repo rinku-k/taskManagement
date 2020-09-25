@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInfo } from '../task/reducer';
+import { reset } from './reducer';
 import { Input, Header, Footer } from '../../common';
 import Employee from './item';
-import { MAX_NAME_LENGTH } from '../../constants';
+import { MAX_NAME_LENGTH, SPACINGS } from '../../constants';
 
-const Employees = () => {
+const Employees = (props) => {
   const dispatch = useDispatch();
   const { byId, allIds, selectedIds } = useSelector(state => state.employees);
   const me = useSelector(state => state.auth);
@@ -24,6 +25,7 @@ const Employees = () => {
           value={searchText}
           maxLength={MAX_NAME_LENGTH}
           onChangeText={searchTerm => setSearchText(searchTerm)}
+          style={{ paddingVertical: 5, margin: SPACINGS.container }}
         />
         <FlatList
           data={!searchText ? allIds : allIds.filter(id => byId[id].name.toLowerCase().includes(searchText.toLowerCase()))}
@@ -37,7 +39,11 @@ const Employees = () => {
           showsVerticalScrollIndicator={false}
         />
       </View>
-      <Footer title="Assign" onPress={() => dispatch(updateInfo({ type: "employee", value: selectedIds }))}/>
+      <Footer title="Assign" onPress={() => {
+        dispatch(updateInfo({ type: "assignee", value: selectedIds }));
+        dispatch(reset());
+        props.navigation.goBack();
+      }}/>
     </View>
   );
 };
