@@ -3,7 +3,7 @@ import employees from './data';
 
 const initialState = {
   byId: employees,
-  allIds: Object.keys(employees).map(a => parseInt(a, 10)),
+  allIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
   selectedIds: [],
 };
 

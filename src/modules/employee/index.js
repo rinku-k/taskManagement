@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateInfo } from '../task/reducer';
-import { reset } from './reducer';
 import { Input, Header, Footer } from '../../common';
 import Employee from './item';
 import { MAX_NAME_LENGTH, SPACINGS } from '../../constants';
@@ -41,7 +40,6 @@ const Employees = (props) => {
       </View>
       <Footer title="Assign" onPress={() => {
         dispatch(updateInfo({ type: "assignee", value: selectedIds }));
-        dispatch(reset());
         props.navigation.goBack();
       }}/>
     </View>

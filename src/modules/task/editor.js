@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { Input, Textbox, Header, Footer, DatePicker, Attachment, Heading } from '../../common';
 import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
 import Assignee from './assignee';
-import { updateInfo } from './reducer';
+import { reset as resetEmployee } from '../employee/reducer';
+import { updateInfo, reset } from './reducer';
 
 const TaskEditor = (props) => {
   const { summary, dateTime, assignee, description, attachment } = useSelector(state => state.task);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(resetEmployee());
+    dispatch(reset());
+  }, []);
 
   const updateFields = (type, value) => dispatch(updateInfo({ type, value }));
 
@@ -20,6 +26,7 @@ const TaskEditor = (props) => {
       <ScrollView
         style={styles.container}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         <Heading text="Summary" />
         <Input
@@ -32,6 +39,7 @@ const TaskEditor = (props) => {
         <Assignee
           selected={assignee}
           onPress={() => props.navigation.navigate('Employee')}
+          allowAssign
         />
         <Heading style={{ paddingVertical: 10 }} text="Description" />
         <Textbox
@@ -49,7 +57,7 @@ const TaskEditor = (props) => {
       <Footer
         disabled={!summary || !dateTime || !assignee.length || !description || !attachment }
         title="Create task"
-        onPress={() => props.navigation.navigate('Task')}
+        onPress={() => props.navigation.replace('Task')}
       />
     </View>
   );

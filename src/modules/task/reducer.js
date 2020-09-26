@@ -1,12 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const dummy = {
-  summary: "This is title",
-  dateTime: "23.09.2020",
-  assignee: [1,2,3,4,5,6],
-  description: "This is temp",
-  attachment: { name: "test.jjs" },
-};
 const initialState = {
   summary: "",
   dateTime: "",
@@ -23,7 +16,11 @@ export const task = createSlice({
       state[action.payload.type] = action.payload.value;
     },
     reset: (state, action) => {
-      state = initialState;
+      state.summary = initialState.summary;
+      state.dateTime = initialState.dateTime;
+      state.assignee = initialState.assignee;
+      state.description = initialState.description;
+      state.attachment = initialState.attachment;
     },
   }
 });

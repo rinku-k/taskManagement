@@ -1,27 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { Heading, FacePile } from '../../common';
 import { COLORS } from '../../constants';
 
-const Assignee = ({ selected, onPress }) => {
+const Assignee = ({ selected, allowAssign, onPress }) => {
   const { byId } = useSelector(state => state.employees);
-  const dispatch = useDispatch();
   
   const faces = selected.map(id => byId[id]);
   return (
     <View style={styles.container}>
       <View style={styles.inline}>
         <Heading text="Assignees" />
-        { !selected.length && <Button
+        { allowAssign && <Button
           title="+ Assign"
           type="clear"
           titleStyle={{ color: COLORS.primary }}
           onPress={onPress}
-        />
-        }
+        /> }
       </View>
       { !!faces.length &&
         <FacePile numFaces={3} faces={faces} />
@@ -44,11 +42,13 @@ const styles = StyleSheet.create({
 Assignee.propTypes = {
   selected: PropTypes.array,
   onPress: PropTypes.func,
+  allowAssign: PropTypes.bool,
 };
 
 Assignee.defaultProps = {
   selected: [],
   onPress: null,
+  allowAssign: false,
 };
 
 export default Assignee;

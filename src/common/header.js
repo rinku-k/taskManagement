@@ -22,7 +22,7 @@ export const Header = (props) => (
       </TouchableOpacity>
     }
     <View style={{ flex: 2, justifyContent: 'center' }}>
-      <Title text={props.title} style={{ color: '#fff' }} />
+      <Title numberOfLines={1} text={props.title} style={{ color: '#fff' }} />
     </View>
     <View style={{ flex: 1 }} />
   </View>
