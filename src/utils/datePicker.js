@@ -4,8 +4,7 @@ import { Calendar } from 'react-native-calendars';
 import { Button, Icon } from 'react-native-elements';
 import ModalBox from 'react-native-modalbox';
 import PropTypes from 'prop-types';
-import { inputStyles } from './input';
-import { Content } from './texts';
+import { inputStyles, Content } from '../common';
 import { COLORS, BORDERS, SPACINGS, TEXT_COLORS } from '../constants';
 
 export const DatePicker = ({ value, onSelected }) => {

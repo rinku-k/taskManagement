@@ -6,13 +6,14 @@ import { Icon } from 'react-native-elements';
 import { SPACINGS } from '../../constants';
 import Assignee from './assignee';
 
+// This final created task information
 const Task = (props) => {
   const { summary, dateTime, assignee, description, attachment } = useSelector(state => state.task);
 
   return (
     <View style={{ flex: 1 }}>
       <Header
-        onBackPress={() => props.navigation.replace('TaskEditor')}
+        onBackPress={() => props.navigation.replace('CreateTask')}
         title={summary}
       />
       <ScrollView
@@ -38,7 +39,7 @@ const Task = (props) => {
       </ScrollView>
       <Footer
         title="Close task"
-        onPress={() => props.navigation.replace('TaskEditor')}
+        onPress={() => props.navigation.replace('CreateTask')}
       />
     </View>
   );

@@ -3,7 +3,7 @@ import { View, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 import { Button, Icon } from 'react-native-elements';
 import DocumentPicker from 'react-native-document-picker';
-import { Heading, Content } from './texts';
+import { Heading, Content } from '../common';
 import { BORDERS, COLORS, TEXT_COLORS } from '../constants';
 
 export const Attachment = ({ file, setFile, avoidDelete }) => {

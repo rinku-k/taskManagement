@@ -6,6 +6,7 @@ import { Input, Header, Footer } from '../../common';
 import Employee from './item';
 import { MAX_NAME_LENGTH, SPACINGS } from '../../constants';
 
+// Shows list of employees with Search
 const Employees = (props) => {
   const dispatch = useDispatch();
   const { byId, allIds, selectedIds } = useSelector(state => state.employees);

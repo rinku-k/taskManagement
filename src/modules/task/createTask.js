@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { Input, Textbox, Header, Footer, DatePicker, Attachment, Heading } from '../../common';
+import { Input, Textbox, Header, Footer, Heading } from '../../common';
+import { DatePicker, Attachment } from '../../utils';
 import { SPACINGS, MAX_TITLE_LENGTH, MAX_DESCRIPTION_LENGTH } from '../../constants';
 import Assignee from './assignee';
 import { reset as resetEmployee } from '../employee/reducer';
 import { updateInfo, reset } from './reducer';
 
-const TaskEditor = (props) => {
+const CreateTask = (props) => {
   const { summary, dateTime, assignee, description, attachment } = useSelector(state => state.task);
   const dispatch = useDispatch();
 
@@ -70,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TaskEditor;
+export default CreateTask;

@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Task from '../modules/task';
-import TaskEditor from '../modules/task/editor';
+import CreateTask from '../modules/task/createTask';
 import Employee from '../modules/employee';
 
 const Stack = createStackNavigator();
@@ -14,7 +14,7 @@ const Screens = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator headerMode="none">
-          <Stack.Screen name="TaskEditor" component={TaskEditor} />
+          <Stack.Screen name="CreateTask" component={CreateTask} />
           <Stack.Screen name="Employee" component={Employee} />
           <Stack.Screen name="Task" component={Task} />
         </Stack.Navigator>

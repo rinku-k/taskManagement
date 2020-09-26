@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { View, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { Heading, FacePile } from '../../common';
+import { Heading } from '../../common';
+import { FacePile } from '../../utils';
 import { COLORS } from '../../constants';
 
+// This shows the assigned employee face pile and allows to edit
 const Assignee = ({ selected, allowAssign, onPress }) => {
   const { byId } = useSelector(state => state.employees);
   
