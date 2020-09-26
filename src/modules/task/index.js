@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Header, Footer, Heading, SubTitle, Content, Attachment } from '../../common';
+import { Header, Footer, Heading, SubTitle, Content } from '../../common';
+import { Attachment } from '../../utils';
 import { Icon } from 'react-native-elements';
 import { SPACINGS } from '../../constants';
 import Assignee from './assignee';

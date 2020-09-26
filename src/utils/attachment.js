@@ -15,7 +15,7 @@ export const Attachment = ({ file, setFile, avoidDelete }) => {
       });
       setFile(res);
     } catch (err) {
-      console.log('Unknown Error: ' + JSON.stringify(err));
+      // console.log('Unknown Error: ' + JSON.stringify(err));
     }
   }
 
