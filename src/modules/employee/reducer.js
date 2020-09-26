@@ -7,6 +7,38 @@ const initialState = {
   selectedIds: [],
 };
 
+const removeEmployee = (state, id) => {
+  const employeePosition = state.selectedIds.indexOf(id);
+  state.selectedIds.splice(employeePosition, 1);
+  // Uncheck group if any member of it is removed
+  const belongsToGroup = state.byId[id].groupId;
+  const groupPosition = state.selectedIds.indexOf(belongsToGroup);
+  if (belongsToGroup && groupPosition > -1) {
+    state.selectedIds.splice(groupPosition, 1);
+  }
+  // If group is unselected, uncheck all its members
+  const members = state.byId[id].memberIds;
+  if (members && members.length) {
+    members.forEach(memberId => {
+      removeEmployee(state, memberId);
+    });
+  }
+};
+
+const addEmployee = (state, id) => {
+  const employeePosition = state.selectedIds.indexOf(id);
+  if (employeePosition < 0) {
+    state.selectedIds = [ ...state.selectedIds, id];
+  }
+  // If group is selected, check all its members
+  const members = state.byId[id].memberIds;
+  if (members && members.length) {
+    members.forEach(memberId => {
+      addEmployee(state, memberId);
+    });
+  }
+};
+
 export const employee = createSlice({
   name: 'employee',
   initialState,
@@ -14,9 +46,9 @@ export const employee = createSlice({
     onEmployeeClick: (state, action) => {
       const employeePosition = state.selectedIds.indexOf(action.payload);
       if (employeePosition > -1) {
-        state.selectedIds.splice(employeePosition, 1);
+        removeEmployee(state, action.payload);
       } else {
-        state.selectedIds = [ ...state.selectedIds, action.payload];
+        addEmployee(state, action.payload);
       }
     },
     reset: (state, action) => {

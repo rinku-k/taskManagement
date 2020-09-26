@@ -28,24 +28,16 @@ export const DatePicker = ({ value, onSelected }) => {
         position="bottom"
         backButtonClose
         backdropPressToClose
+        onClosed={() => setVisibility(false)}
         style={{ height: 'auto', padding: SPACINGS.container, borderTopLeftRadius: BORDERS.radius, borderTopRightRadius: BORDERS.radius, elevation: 1 }}
       >
         <Calendar
-          markingType={'custom'}
           markedDates={date}
           onDayPress={(day) => {
             setDate({
               [day.dateString]: {
-                customStyles: {
-                  container: {
-                    backgroundColor: COLORS.primary,
-                    borderRadius: BORDERS.radius,
-                  },
-                  text: {
-                    color: 'white',
-                  },
-                },
                 selected: true,
+                selectedColor: COLORS.primary,
               },
             });
           }}

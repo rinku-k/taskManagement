@@ -24,7 +24,7 @@ const Assignee = ({ selected, allowAssign, onPress }) => {
         /> }
       </View>
       { !!faces.length &&
-        <FacePile numFaces={3} faces={faces} />
+        <FacePile numFaces={3} faces={faces.filter(face => !(face.memberIds && face.memberIds.length))} />
       }
     </View>
   );
